@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Kreatif Kami</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(90deg, #ff6a00, #ee0979);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .page {
+            display: none;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        form label {
+            margin-top: 10px;
+        }
+        form input {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #ff6a00;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        form button:hover {
+            background-color: #ee0979;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Website Kreatif Kami</h1>
+    <nav>
+        <a href="#" onclick="showPage('home')">Beranda</a>
+        <a href="#" onclick="showPage('login')">Login</a>
+        <a href="#" onclick="showPage('register')">Register</a>
+        <a href="#" onclick="showPage('dashboard')">Dashboard</a>
+    </nav>
+</header>
+
+<main id="content">
+    <div id="home" class="page">
+        <h2>Selamat Datang di Website Kreatif Kami!</h2>
+        <p>Temukan berbagai informasi dan fitur menarik di sini.</p>
+    </div>
+
+    <div id="login" class="page">
+        <h2>Login ke Akun Anda</h2>
+        <form onsubmit="event.preventDefault(); showPage('dashboard');">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p>Belum punya akun? <a href="#" onclick="showPage('register')">Daftar di sini</a></p>
+    </div>
+
+    <div id="register" class="page">
+        <h2>Daftar Akun Baru</h2>
+        <form onsubmit="event.preventDefault(); showPage('dashboard');">
+            <label for="reg-username">Username:</label>
+            <input type="text" id="reg-username" name="username" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="reg-password">Password:</label>
+            <input type="password" id="reg-password" name="password" required>
+            <button type="submit">Daftar</button>
+        </form>
+        <p>Sudah punya akun? <a href="#" onclick="showPage(' login')">Login di sini</a></p>
+    </div>
+
+    <div id="dashboard" class="page">
+        <h2>Selamat Datang di Dashboard Anda!</h2>
+        <p>Temukan berbagai fitur dan informasi eksklusif di sini.</p>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2023 Website Kreatif Kami</p>
+</footer>
+
+<script>
+    function showPage(page) {
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(p => {
+            p.style.display = 'none';
+        });
+        document.getElementById(page).style.display = 'block';
+    }
+
+    // Tampilkan beranda secara default
+    showPage('home');
+</script>
+
+</body>
+</html>
